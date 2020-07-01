@@ -1,0 +1,44 @@
+.schedule {
+  box-shadow: 0px 2px 12px 0px rgba(224, 171, 171, 0.18);
+  padding: 20px 0;
+
+  @include breakpoint($xs) {
+    padding: 20px 30px;
+  }
+
+  hr {
+    border: 1px solid rgba(206, 214, 224, 0.36);
+    margin: 10px 0 20px;
+  }
+
+  &__item {
+    background-color: #dfe6e9;
+    border-radius: 5px;
+    display: inline-block;
+    max-width: 100px;
+    margin: 0 10px 10px 0;
+    padding: 3px 5px;
+
+    @include breakpoint($md) {
+      padding: 8px 16px;
+    }
+
+    &.available {
+      background-color: #74b9ff;
+    }
+
+    &.unavailable {
+      background-color: #ff7675;
+    }
+
+    button {
+      cursor: default;
+    }
+  }
+
+  &__link {
+    background: transparent;
+    font-size: 13px;
+    padding: 3px 5px;
+  }
+}

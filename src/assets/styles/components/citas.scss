@@ -1,0 +1,72 @@
+.citas {
+  &__list {
+    padding: 30px 0;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.52),
+        rgba(255, 255, 255, 0.97)
+      ),
+      url("/source/assets/images/doctor2.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 10% top;
+    min-height: 400px;
+
+    @include breakpoint($sm) {
+      background-position: center;
+    }
+
+    @include breakpoint($md) {
+      background-position: center 0;
+      min-height: 600px;
+    }
+
+    h3 {
+      color: #1d5271;
+      font-size: 32px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .container {
+      @include breakpoint($md) {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+    }
+
+    &-item {
+      background-color: rgba(255, 255, 255, 0.85);
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-shadow: 0px 2px 12px 0px rgba(60, 60, 60, 0.18);
+      padding: 20px;
+      margin-bottom: 20px;
+
+      @include breakpoint($sm) {
+        margin: 0 auto 30px;
+        max-width: 450px;
+      }
+
+      @include breakpoint($md) {
+        width: 420px;
+        margin: 0 30px 30px 0;
+      }
+
+      h4 {
+        color: #1d5271;
+      }
+
+      i {
+        font-size: 20px;
+        margin-right: 10px;
+        vertical-align: text-top;
+      }
+
+      p {
+        margin-top: 10px;
+      }
+    }
+  }
+}

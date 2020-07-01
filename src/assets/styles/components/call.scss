@@ -1,0 +1,29 @@
+.call {
+  animation: e 3s linear infinite;
+  background: #2aabf7;
+  border-radius: 50%;
+  box-shadow: 5px 6px 9px 0 rgba(60, 60, 60, 0.5);
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 34px;
+  bottom: 25px;
+  right: 10px;
+  z-index: 10;
+
+  a {
+    background-color: transparent;
+    color: #fff;
+    font-size: 34px;
+    line-height: 60px;
+    text-decoration: none;
+
+    &:before {
+      position: relative;
+      left: 3px;
+      bottom: 1px;
+    }
+  }
+}

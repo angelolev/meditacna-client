@@ -1,0 +1,11 @@
+.cita {
+  background-color: #0097e6;
+  padding: 50px 0;
+
+  form {
+    @include breakpoint($xs) {
+      margin: 0 auto;
+      max-width: 290px;
+    }
+  }
+}

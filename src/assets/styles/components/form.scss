@@ -1,0 +1,13 @@
+form {
+  a {
+    &.green {
+      margin-top: 40px;
+    }
+  }
+
+  input {
+    &.form-date {
+      -webkit-appearance: none;
+    }
+  }
+}

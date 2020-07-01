@@ -1,0 +1,28 @@
+.legend {
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 185px;
+  padding: 10px 0;
+
+  &__item {
+    display: inline-block;
+
+    span {
+      font-size: 12px;
+
+      @include breakpoint($md) {
+        font-size: 16px;
+      }
+
+      &.available {
+        color: #74b9ff;
+      }
+
+      &.unavailable {
+        color: #ff7675;
+      }
+    }
+  }
+}

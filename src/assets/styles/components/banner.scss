@@ -1,0 +1,32 @@
+.banner {
+  background: #1d5271;
+  padding: 30px 0;
+  text-align: center;
+
+  @include breakpoint($md) {
+    padding: 50px 0;
+  }
+
+  h3 {
+    color: #fff;
+    font-size: 32px;
+    margin-top: 20px;
+
+    @include breakpoint($md) {
+      font-size: 42px;
+    }
+  }
+
+  img {
+    max-width: 130px;
+  }
+
+  p {
+    color: #fff;
+    margin: 10px 0 30px;
+
+    @include breakpoint($md) {
+      font-size: 20px;
+    }
+  }
+}
