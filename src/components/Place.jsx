@@ -25,11 +25,13 @@ const Place = (props) => {
               </div>
             </div>
             <hr />
-
-            <ScheduleItem />
-            <ScheduleItem />
-            <ScheduleItem />
-            <ScheduleItem />
+            {props.schedules.map((schedule) => (
+              <ScheduleItem
+                id={schedule._id}
+                hour={schedule.hour}
+                status={schedule.status}
+              />
+            ))}
           </div>
         </div>
         <div className="actions">
