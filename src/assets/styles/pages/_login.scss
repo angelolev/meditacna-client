@@ -1,0 +1,14 @@
+.login {
+  &__form {
+    padding: 20px;
+
+    button {
+      width: 100%;
+      background-color: red;
+    }
+
+    input {
+      border: 1px solid red;
+    }
+  }
+}

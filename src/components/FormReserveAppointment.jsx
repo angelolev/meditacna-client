@@ -1,42 +1,94 @@
-import React from "react";
+import React, { useState } from "react";
+import { useParams } from "react-router";
 
-const FormReserveAppointment = () => (
-  <section className="cita">
-    <div className="container">
-      <form action="">
-        <div className="form-group">
-          <label for="fullname">Nombre Completo</label>
-          <input className="form-input" type="text" name="fullname" required />
-        </div>
-        <div className="form-group">
-          <label for="dni">DNI</label>
-          <input className="form-input" type="text" name="dni" required />
-        </div>
-        <div className="form-group">
-          <label for="phone">Telefono</label>
-          <input className="form-input" type="tel" name="phone" required />
-        </div>
-        <div className="form-group">
-          <label for="date">Fecha</label>
-          <input
-            className="form-input form-date"
-            type="date"
-            name="date"
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label for="hour">Hora</label>
-          <input className="form-input" type="tel" name="hour" required />
-        </div>
-        <div className="form-group">
-          <a href="/" className="btn green" id="btnReservar">
-            Reservar
-          </a>
-        </div>
-      </form>
-    </div>
-  </section>
-);
+const FormReserveAppointment = (props) => {
+  let { id } = useParams();
+
+  const [fullname, setFullname] = useState("");
+  const [dni, setDni] = useState("");
+  const [phone, setPhone] = useState("");
+  const [date, setDate] = useState("");
+  const [hour, setHour] = useState("");
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+    props.onAddAppointment({
+      fullname: fullname,
+      dni: dni,
+      phone: phone,
+      date: date,
+      hour: hour,
+    });
+  };
+
+  return (
+    <section className="cita">
+      <div className="container">
+        <form onSubmit={submitHandler}>
+          <div className="form-group">
+            <label for="fullname">Nombre Completo</label>
+            <input
+              className="form-input"
+              type="text"
+              name="fullname"
+              required
+              value={fullname}
+              onChange={(event) => setFullname(event.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label for="dni">DNI</label>
+            <input
+              className="form-input"
+              type="text"
+              name="dni"
+              required
+              value={dni}
+              onChange={(event) => setDni(event.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label for="phone">Telefono</label>
+            <input
+              className="form-input"
+              type="tel"
+              name="phone"
+              required
+              value={phone}
+              onChange={(event) => setPhone(event.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label for="date">Fecha</label>
+            <input
+              className="form-input form-date"
+              type="date"
+              name="date"
+              required
+              value={date}
+              onChange={(event) => setDate(event.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label for="hour">Hora</label>
+            <input
+              className="form-input"
+              type="tel"
+              name="hour"
+              required
+              value={hour}
+              onChange={(event) => setHour(event.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <button className="btn green" type="submit">
+              Reservar
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  );
+};
 
 export default FormReserveAppointment;

@@ -20,20 +20,7 @@ button {
   margin: 0;
   text-decoration: none;
   outline: none;
-}
 
-a {
-  &.arrow {
-    &:after {
-      content: "\ea3c";
-      color: inherit;
-      font-family: icomoon;
-      display: inline-block;
-      margin-left: 10px;
-      position: relative;
-      vertical-align: middle;
-    }
-  }
   &.btn {
     box-shadow: 1px 3px 5px 0 rgba(0, 0, 0, 0.16);
     transition: background-color 0.3s;
@@ -49,6 +36,20 @@ a {
     padding: 13px 10px;
     width: 200px;
     text-align: center;
+  }
+}
+
+a {
+  &.arrow {
+    &:after {
+      content: "\ea3c";
+      color: inherit;
+      font-family: icomoon;
+      display: inline-block;
+      margin-left: 10px;
+      position: relative;
+      vertical-align: middle;
+    }
   }
 
   &.phone {

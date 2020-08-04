@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ScheduleItem from "./ScheduleItem";
 import placeLogo from "../assets/images/meditacna.svg";
 
 const Place = (props) => {
+  const [horarios, setHorarios] = useState([]);
+
+  useEffect(() => {
+    setHorarios(props.schedules);
+    document.title = `ahora hay ${horarios.length} horarios`;
+  });
+
   return (
     <section className="place">
       <div className="place__content">
