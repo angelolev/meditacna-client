@@ -26,7 +26,7 @@ const FormReserveAppointment = (props) => {
       <div className="container">
         <form onSubmit={submitHandler}>
           <div className="form-group">
-            <label for="fullname">Nombre Completo</label>
+            <label htmlFor="fullname">Nombre Completo</label>
             <input
               className="form-input"
               type="text"
@@ -37,7 +37,7 @@ const FormReserveAppointment = (props) => {
             />
           </div>
           <div className="form-group">
-            <label for="dni">DNI</label>
+            <label htmlFor="dni">DNI</label>
             <input
               className="form-input"
               type="text"
@@ -48,7 +48,7 @@ const FormReserveAppointment = (props) => {
             />
           </div>
           <div className="form-group">
-            <label for="phone">Telefono</label>
+            <label htmlFor="phone">Telefono</label>
             <input
               className="form-input"
               type="tel"
@@ -59,7 +59,14 @@ const FormReserveAppointment = (props) => {
             />
           </div>
           <div className="form-group">
-            <label for="date">Fecha</label>
+            <label htmlFor="type">Tipo</label>
+            <select>
+              <option value="particular">Particular</option>
+              <option value="convenio"></option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label htmlFor="date">Fecha</label>
             <input
               className="form-input form-date"
               type="date"
@@ -70,7 +77,7 @@ const FormReserveAppointment = (props) => {
             />
           </div>
           <div className="form-group">
-            <label for="hour">Hora</label>
+            <label htmlFor="hour">Hora</label>
             <input
               className="form-input"
               type="tel"

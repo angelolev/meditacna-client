@@ -4,24 +4,42 @@ import Place from "../components/Place";
 import Services from "../components/Services";
 import Service from "../components/Service";
 import Call from "../components/Call";
-
-import "../assets/styles/app.scss";
+import { db } from "../services/firebase";
 
 const Home = () => {
-  const [schedules, setSchedules] = useState([]);
+  const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
-    async function fetchData() {
-      const res = await fetch("http://localhost:3000/api/schedules");
-      res.json().then((res) => setSchedules(res.data));
-    }
+    // async function fetchData() {
+    //   const res = await fetch("http://localhost:3000/api/schedules");
+    //   res.json().then((res) => setSchedules(res.data));
+    // }
 
-    fetchData();
+    // fetchData();
+    db.collection("appointments")
+      .get()
+      .then((querySnapshot) => {
+        const loadedAppointments = [];
+        querySnapshot.forEach((doc) => {
+          const currentDoc = doc.data();
+          currentDoc.id = doc.id;
+          loadedAppointments.push(currentDoc);
+        });
+        setAppointments(loadedAppointments);
+        console.log(loadedAppointments, "app");
+        return querySnapshot;
+      })
+      .then((querySnapshot) => {
+        console.log(querySnapshot, "xd");
+        querySnapshot.map((doc) => {
+          console.log(doc);
+        });
+      });
   }, []);
 
   return (
     <div>
-      <Place address="Calle Tacna 159" schedules={schedules} />
+      <Place address="Calle Tacna 159" schedules={appointments} />
       <Banner />
       <Services>
         <Service name="Ginecologia" />

@@ -7,7 +7,6 @@ const Place = (props) => {
 
   useEffect(() => {
     setHorarios(props.schedules);
-    document.title = `ahora hay ${horarios.length} horarios`;
   });
 
   return (
@@ -34,7 +33,8 @@ const Place = (props) => {
             <hr />
             {props.schedules.map((schedule) => (
               <ScheduleItem
-                id={schedule._id}
+                key={schedule.id}
+                id={schedule.id}
                 hour={schedule.hour}
                 status={schedule.status}
               />

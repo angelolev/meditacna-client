@@ -8,6 +8,8 @@ import MyAppointments from "../containers/MyAppointments";
 import Reserve from "../containers/Reserve";
 import Layout from "../components/Layout";
 
+import "../assets/styles/app.scss";
+
 const App = () => (
   <BrowserRouter>
     <Layout>
