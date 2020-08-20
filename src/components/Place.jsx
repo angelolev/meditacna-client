@@ -3,12 +3,6 @@ import ScheduleItem from "./ScheduleItem";
 import placeLogo from "../assets/images/meditacna.svg";
 
 const Place = (props) => {
-  const [horarios, setHorarios] = useState([]);
-
-  useEffect(() => {
-    setHorarios(props.schedules);
-  });
-
   return (
     <section className="place">
       <div className="place__content">
@@ -31,7 +25,7 @@ const Place = (props) => {
               </div>
             </div>
             <hr />
-            {props.schedules.map((schedule) => (
+            {props.appointments.map((schedule) => (
               <ScheduleItem
                 key={schedule.id}
                 id={schedule.id}

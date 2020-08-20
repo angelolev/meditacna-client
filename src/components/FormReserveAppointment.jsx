@@ -1,23 +1,39 @@
 import React, { useState } from "react";
-import { useParams } from "react-router";
+import { db } from "../services/firebase";
+import { useEffect } from "react";
 
 const FormReserveAppointment = (props) => {
-  let { id } = useParams();
-
-  const [fullname, setFullname] = useState("");
+  const [pacient, setPacient] = useState("");
   const [dni, setDni] = useState("");
   const [phone, setPhone] = useState("");
   const [date, setDate] = useState("");
   const [hour, setHour] = useState("");
 
+  useEffect(() => {
+    setPacient(props.appointment.pacient);
+    setDni(props.appointment.dni);
+    setPhone(props.appointment.phone);
+    setHour(props.appointment.hour);
+  });
+
+  const updateAppointment = (id, updatedAppointment) => {
+    db.collection("appointments")
+      .doc(id)
+      .update(updatedAppointment)
+      .then((querySnapshot) => {
+        console.log(querySnapshot);
+      });
+  };
+
   const submitHandler = (event) => {
     event.preventDefault();
-    props.onAddAppointment({
-      fullname: fullname,
-      dni: dni,
-      phone: phone,
-      date: date,
-      hour: hour,
+    console.log("submit");
+    updateAppointment(props.id, {
+      pacient,
+      dni,
+      phone,
+      hour,
+      status: "unavailable",
     });
   };
 
@@ -26,14 +42,14 @@ const FormReserveAppointment = (props) => {
       <div className="container">
         <form onSubmit={submitHandler}>
           <div className="form-group">
-            <label htmlFor="fullname">Nombre Completo</label>
+            <label htmlFor="pacient">Nombre Completo</label>
             <input
               className="form-input"
               type="text"
-              name="fullname"
+              name="pacient"
               required
-              value={fullname}
-              onChange={(event) => setFullname(event.target.value)}
+              value={pacient}
+              onChange={(event) => setPacient(event.target.value)}
             />
           </div>
           <div className="form-group">
@@ -65,17 +81,17 @@ const FormReserveAppointment = (props) => {
               <option value="convenio"></option>
             </select>
           </div>
-          <div className="form-group">
+          {/* <div className="form-group">
             <label htmlFor="date">Fecha</label>
             <input
               className="form-input form-date"
               type="date"
               name="date"
               required
-              value={date}
+              value=""
               onChange={(event) => setDate(event.target.value)}
             />
-          </div>
+          </div> */}
           <div className="form-group">
             <label htmlFor="hour">Hora</label>
             <input

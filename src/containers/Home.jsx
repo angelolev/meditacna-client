@@ -26,20 +26,12 @@ const Home = () => {
           loadedAppointments.push(currentDoc);
         });
         setAppointments(loadedAppointments);
-        console.log(loadedAppointments, "app");
-        return querySnapshot;
-      })
-      .then((querySnapshot) => {
-        console.log(querySnapshot, "xd");
-        querySnapshot.map((doc) => {
-          console.log(doc);
-        });
       });
   }, []);
 
   return (
     <div>
-      <Place address="Calle Tacna 159" schedules={appointments} />
+      <Place address="Calle Tacna 159" appointments={appointments} />
       <Banner />
       <Services>
         <Service name="Ginecologia" />
