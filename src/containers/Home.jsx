@@ -10,12 +10,6 @@ const Home = () => {
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
-    // async function fetchData() {
-    //   const res = await fetch("http://localhost:3000/api/schedules");
-    //   res.json().then((res) => setSchedules(res.data));
-    // }
-
-    // fetchData();
     db.collection("appointments")
       .get()
       .then((querySnapshot) => {
@@ -29,15 +23,30 @@ const Home = () => {
       });
   }, []);
 
+  useEffect(() => {
+    db.collection("days")
+      .get()
+      .then((querySnapshot) => {
+        const days = [];
+        querySnapshot.forEach((doc) => {
+          const currentDoc = doc.data();
+          currentDoc.id = doc.id;
+          days.push(currentDoc);
+        });
+
+        console.log(days, "dias");
+      });
+  });
+
   return (
     <div>
       <Place address="Calle Tacna 159" appointments={appointments} />
-      <Banner />
+      {/* <Banner />
       <Services>
         <Service name="Ginecologia" />
         <Service name="Psicologia" />
         <Service name="Pediatria" />
-      </Services>
+      </Services> */}
       <Call />
     </div>
   );

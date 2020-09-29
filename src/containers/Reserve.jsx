@@ -3,6 +3,7 @@ import Message from "../components/Message";
 import { db } from "../services/firebase";
 import FormReserveAppointment from "../components/FormReserveAppointment";
 import MyAppointments from "../components/MyAppointments";
+import FormReserve from "../components/FormReserve";
 
 const Reserve = (props) => {
   const [appointment, setAppointment] = useState([]);
@@ -37,7 +38,8 @@ const Reserve = (props) => {
   return (
     <Fragment>
       <Message message="Completa los datos para agendar tu cita" />
-      <FormReserveAppointment appointment={appointment} id={appointmentId} />
+      {/* <FormReserveAppointment appointment={appointment} id={appointmentId} /> */}
+      <FormReserve />
     </Fragment>
   );
 };
